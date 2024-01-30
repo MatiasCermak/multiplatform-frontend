@@ -1,0 +1,5 @@
+<div class="d-flex align-items-end overflow-auto">
+  <ng-container *ngFor="let content of data">
+    <a routerLink="/platform/content/{{content.content_id}}"><card-component [content]="content"></card-component></a>
+  </ng-container>
+</div>

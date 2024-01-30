@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>{{data.isEdit? "Edit Advertisement Plan" : "Create Advertisement Plan"}}</h2>
+<mat-dialog-content>
+  <form class="row" [formGroup]="form">
+    <div class="mb-3">
+      <label i18n for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        aria-describedby="name"
+        formControlName="name"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="description" class="form-label">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        aria-describedby="description"
+        formControlName="description"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="features" class="form-label">Features</label>
+      <input
+        type="text"
+        class="form-control"
+        id="features"
+        aria-describedby="features"
+        formControlName="features"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="price" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        aria-describedby="price"
+        formControlName="price"
+      />
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-between">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close (click)="submit()">Submit</button>
+</mat-dialog-actions>

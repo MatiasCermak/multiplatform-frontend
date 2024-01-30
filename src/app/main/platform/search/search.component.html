@@ -1,0 +1,5 @@
+<div class="row flex-row">
+<ng-container *ngFor="let content of searchResults">
+  <a routerLink="/platform/content/{{content.content_id}}"><card-component [content]="content"></card-component></a>
+</ng-container>
+</div>

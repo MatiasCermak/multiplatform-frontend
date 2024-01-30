@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-sm-12">
+      <div class="text-center">
+        <h2 class="card-title">Login</h2>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label i18n for="email" class="form-label">E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="email"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label i18n for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            aria-describedby="password"
+            formControlName="password"
+          />
+        </div>
+        <div class="text-center">
+          <button i18n class="btn btn-lg btn-primary" type="submit">
+            Ingresar
+          </button>
+        </div>
+      </form>
+      <div class="text-center mt-3">
+        <button i18n class="btn btn-lg btn-secondary" type="button" (click)="register()">
+          Registrarse
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<h2 mat-dialog-title>{{data.isEdit? "Edit Agency" : "Create Agency"}}</h2>
+<mat-dialog-content>
+  <form class="row" [formGroup]="form">
+    <div class="mb-3">
+      <label i18n for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        aria-describedby="name"
+        formControlName="name"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="protocol" class="form-label">Protocol</label>
+      <select class="form-select" id="protocol" name="protocol" formControlName="protocol">
+        <option value="REST">REST</option>
+        <option value="SOAP">SOAP</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label i18n for="url_service" class="form-label">Url Service</label>
+      <input
+        type="text"
+        class="form-control"
+        id="url_service"
+        aria-describedby="url_service"
+        formControlName="url_service"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="advertisement_plan_id" class="form-label">Advertisement Plan</label>
+      <select class="form-select" id="advertisement_plan_id" name="advertisement_plan_id" formControlName="advertisement_plan_id">
+        <option value="{{element.advertisement_plan_id}}" *ngFor="let element of advPlans">{{element.name}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label i18n for="secret_token" class="form-label">Secret Token</label>
+      <input
+        type="text"
+        class="form-control"
+        id="secret_token"
+        aria-describedby="secret_token"
+        formControlName="secret_token"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="active" class="form-label">Active Status</label>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="active" name="active" formControlName="active">
+        <label class="form-check-label" for="active">Active</label>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-between">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="submit()">Submit</button>
+</mat-dialog-actions>

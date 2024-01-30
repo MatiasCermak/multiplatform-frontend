@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-sm-12">
+      <div class="text-center">
+        <h2 class="card-title">Register</h2>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label i18n for="email" class="form-label">E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="email"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label i18n for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            aria-describedby="password"
+            formControlName="password"
+          />
+        </div>
+        <div class="mb-3">
+          <label i18n for="repeat_password" class="form-label">Repeat Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="repeat_password"
+            aria-describedby="repeat_password"
+            formControlName="repeat_password"
+          />
+        </div>
+        <div class="mb-3">
+          <label i18n for="first_name" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="first_name"
+            aria-describedby="first_name"
+            formControlName="first_name"
+          />
+        </div>
+        <div class="mb-3">
+          <label i18n for="last_name" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="last_name"
+            aria-describedby="last_name"
+            formControlName="last_name"
+          />
+        </div>
+        <div class="mb-3">
+          <label i18n for="interests" class="form-label">Interests</label>
+          <mat-form-field style="all: unset">
+            <mat-select formControlName="interests" id="interests" multiple>
+              <mat-option *ngFor="let interest of interestList" value="{{interest.interest_id}}">{{interest.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+        <div class="text-center">
+          <button i18n class="btn btn-lg btn-primary" type="submit">
+            Ingresar
+          </button>
+        </div>
+      </form>
+      <div class="text-center mt-3">
+        <button i18n class="btn btn-lg btn-secondary" type="button" (click)="login()">
+          Logueate
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

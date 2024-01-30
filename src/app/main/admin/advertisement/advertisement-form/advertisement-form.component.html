@@ -1,0 +1,88 @@
+<h2 mat-dialog-title>{{data.isEdit? "Edit Advertisement Plan" : "Create Advertisement Plan"}}</h2>
+<mat-dialog-content>
+  <form class="row" [formGroup]="form">
+    <div class="mb-3">
+      <label i18n for="agency_id" class="form-label">Agency Id</label>
+      <select class="form-select" id="agency_id" name="agency_id" formControlName="agency_id">
+        <option value="{{element.agency_id}}" *ngFor="let element of agencies">{{element.name}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label i18n for="start_date" class="form-label">Start Date</label>
+      <input
+        class="form-control"
+        id="start_date"
+        name="start_date"
+        formControlName="start_date"
+        ngbDatepicker
+        #start_date="ngbDatepicker"
+      />
+      <button class="btn btn-outline-secondary d-flex align-items-center" (click)="start_date.toggle()" type="button"><mat-icon>calendar_month</mat-icon></button>
+    </div>
+    <div class="mb-3">
+      <label i18n for="end_date" class="form-label">End Date</label>
+      <input
+        class="form-control"
+        id="end_date"
+        name="end_date"
+        formControlName="end_date"
+        ngbDatepicker
+        #end_date="ngbDatepicker"
+      />
+      <button class="btn btn-outline-secondary d-flex align-items-center" (click)="end_date.toggle()" type="button"><mat-icon>calendar_month</mat-icon></button>
+    </div>
+    <div class="mb-3">
+      <label i18n for="url_image" class="form-label">Url Image</label>
+      <input
+        type="text"
+        class="form-control"
+        id="url_image"
+        aria-describedby="url_image"
+        formControlName="url_image"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="file_name" class="form-label">File Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="file_name"
+        aria-describedby="file_name"
+        formControlName="file_name"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="status" class="form-label">Status</label>
+      <input
+        type="text"
+        class="form-control"
+        id="status"
+        aria-describedby="status"
+        formControlName="status"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="provided_url" class="form-label">Provided Url</label>
+      <input
+        type="text"
+        class="form-control"
+        id="provided_url"
+        aria-describedby="provided_url"
+        formControlName="provided_url"
+      />
+    </div>
+    <div class="mb-3">
+      <label i18n for="interests" class="form-label">Interests</label>
+      <mat-form-field style="all: unset">
+        <mat-select formControlName="interests" id="interests" multiple>
+          <mat-option *ngFor="let interest of interestList" value="{{interest.interest_id}}">{{interest.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-between">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="submit()">Submit</button>
+</mat-dialog-actions>

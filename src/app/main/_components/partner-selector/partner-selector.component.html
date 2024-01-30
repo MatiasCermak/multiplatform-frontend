@@ -1,0 +1,5 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content>{{data.text}}</mat-dialog-content>
+<mat-dialog-actions class="justify-content-center">
+  <button *ngFor="let partner of data.partners" class="btn btn-primary m-1" (click)="onSubmit(partner)">{{this._partnersService.getPartnerByPartnerId(partner)?.name}}</button>
+</mat-dialog-actions>

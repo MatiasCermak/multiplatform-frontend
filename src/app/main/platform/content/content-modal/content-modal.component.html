@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{data.contentName}}</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="video">
+    <iframe width="420" height="315"
+            [src]="data.watchUrl | safe" allowfullscreen>
+    </iframe>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>
